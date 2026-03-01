@@ -14,7 +14,7 @@
     "license": "MIT",
     "description": "Tree-sitter grammar for Visual Basic for Applications (VBA)",
     "authors": [
-      { "name": "Tim Epple" }
+      { "name": "Todd Epple" }
     ],
     "links": {
       "repository": "https://github.com/tmepple/tree-sitter-vba"
