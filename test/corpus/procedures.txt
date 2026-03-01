@@ -1,0 +1,101 @@
+================
+Sub declaration
+================
+
+Sub AutoOpen()
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)))
+
+================
+Public Function with return type
+================
+
+Public Function GetName(ByVal id As Long) As String
+    GetName = "test"
+End Function
+
+---
+
+(source_file
+  (function_declaration
+    (access_modifier)
+    name: (identifier)
+    (parameter_list
+      (parameter
+        name: (identifier)
+        (as_clause
+          type: (type_expression
+            (builtin_type)))))
+    (as_clause
+      type: (type_expression
+        (builtin_type)))
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (string_literal))))))
+
+================
+Private Sub with parameter
+================
+
+Private Sub RunTask(ws As Worksheet)
+    ws.Activate
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    (access_modifier)
+    name: (identifier)
+    (parameter_list
+      (parameter
+        name: (identifier)
+        (as_clause
+          type: (type_expression
+            (dotted_name
+              (identifier))))))
+    (body
+      (call_statement
+        target: (identifier)
+        (argument_list
+          (member_access_expression
+            member: (identifier)))))))
+
+================
+Function with New in Dim
+================
+
+Function MakeList() As Collection
+    Dim result As New Collection
+    Set MakeList = result
+End Function
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    (parameter_list)
+    (as_clause
+      type: (type_expression
+        (dotted_name
+          (identifier))))
+    (body
+      (variable_declaration
+        (variable_declarator
+          name: (identifier)
+          (as_clause
+            type: (type_expression
+              (dotted_name
+                (identifier))))))
+      (set_statement
+        left: (identifier)
+        right: (identifier)))))

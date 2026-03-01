@@ -1,0 +1,179 @@
+================
+If Then End If
+================
+
+Sub Test()
+    If x = 1 Then
+        y = 2
+    End If
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (if_statement
+        condition: (binary_expression
+          left: (identifier)
+          right: (literal
+            (integer_literal)))
+        (body
+          (assignment_statement
+            left: (identifier)
+            right: (literal
+              (integer_literal))))))))
+
+================
+If ElseIf Else
+================
+
+Sub Test()
+    If x = 1 Then
+        y = 1
+    ElseIf x = 2 Then
+        y = 2
+    Else
+        y = 3
+    End If
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (if_statement
+        condition: (binary_expression
+          left: (identifier)
+          right: (literal
+            (integer_literal)))
+        (body
+          (assignment_statement
+            left: (identifier)
+            right: (literal
+              (integer_literal))))
+        (elseif_clause
+          condition: (binary_expression
+            left: (identifier)
+            right: (literal
+              (integer_literal)))
+          (body
+            (assignment_statement
+              left: (identifier)
+              right: (literal
+                (integer_literal)))))
+        (else_clause
+          (body
+            (assignment_statement
+              left: (identifier)
+              right: (literal
+                (integer_literal)))))))))
+
+================
+For Next
+================
+
+Sub Test()
+    For i = 1 To 10
+        x = i
+    Next i
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (for_statement
+        variable: (identifier)
+        start: (literal
+          (integer_literal))
+        end: (literal
+          (integer_literal))
+        (body
+          (assignment_statement
+            left: (identifier)
+            right: (identifier)))
+        (identifier)))))
+
+================
+For Each Next
+================
+
+Sub Test()
+    For Each item In collection
+        x = item
+    Next item
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (for_each_statement
+        variable: (identifier)
+        collection: (identifier)
+        (body
+          (assignment_statement
+            left: (identifier)
+            right: (identifier)))
+        (identifier)))))
+
+================
+For with Step
+================
+
+Sub Test()
+    For i = 10 To 1 Step -1
+        x = i
+    Next i
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (for_statement
+        variable: (identifier)
+        start: (literal
+          (integer_literal))
+        end: (literal
+          (integer_literal))
+        step: (unary_expression
+          (literal
+            (integer_literal)))
+        (body
+          (assignment_statement
+            left: (identifier)
+            right: (identifier)))
+        (identifier)))))
+
+================
+Exit Sub
+================
+
+Sub Test()
+    Exit Sub
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (exit_statement))))

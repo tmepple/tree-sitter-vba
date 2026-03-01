@@ -1,0 +1,21 @@
+================
+Single quote comment
+================
+
+' This is a comment
+
+---
+
+(source_file
+  (comment))
+
+================
+Rem comment
+================
+
+Rem This is a comment
+
+---
+
+(source_file
+  (comment))

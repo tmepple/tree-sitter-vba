@@ -1,0 +1,124 @@
+================
+String literal
+================
+
+Sub Test()
+    x = "hello world"
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (string_literal))))))
+
+================
+Integer literal
+================
+
+Sub Test()
+    x = 42
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (integer_literal))))))
+
+================
+Hex literal
+================
+
+Sub Test()
+    x = &HFF
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (integer_literal))))))
+
+================
+Float literal
+================
+
+Sub Test()
+    x = 3.14
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (float_literal))))))
+
+================
+Boolean literals
+================
+
+Sub Test()
+    x = True
+    y = False
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (boolean_literal)))
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (boolean_literal))))))
+
+================
+Nothing literal
+================
+
+Sub Test()
+    Set x = Nothing
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (set_statement
+        left: (identifier)
+        right: (literal
+          (nothing_literal))))))

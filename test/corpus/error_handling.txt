@@ -1,0 +1,61 @@
+================
+On Error Resume Next
+================
+
+Sub Test()
+    On Error Resume Next
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (on_error_statement))))
+
+================
+On Error GoTo 0
+================
+
+Sub Test()
+    On Error GoTo 0
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (on_error_statement))))
+
+================
+On Error GoTo label
+================
+
+Sub Test()
+    On Error GoTo ErrorHandler
+    Exit Sub
+ErrorHandler:
+    x = 1
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (on_error_statement
+        (identifier))
+      (exit_statement)
+      (label
+        (identifier))
+      (assignment_statement
+        left: (identifier)
+        right: (literal
+          (integer_literal))))))

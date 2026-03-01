@@ -1,0 +1,93 @@
+================
+Option Explicit
+================
+
+Option Explicit
+
+---
+
+(source_file
+  (option_statement))
+
+================
+Attribute statement
+================
+
+Attribute VB_Name = "TestModule"
+
+---
+
+(source_file
+  (attribute_statement
+    name: (dotted_name
+      (identifier))
+    value: (literal
+      (string_literal))))
+
+================
+Dim variable
+================
+
+Sub Test()
+    Dim x As Long
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (variable_declaration
+        (variable_declarator
+          name: (identifier)
+          (as_clause
+            type: (type_expression
+              (builtin_type))))))))
+
+================
+Dim multiple variables
+================
+
+Sub Test()
+    Dim x As Long, y As String
+End Sub
+
+---
+
+(source_file
+  (sub_declaration
+    name: (identifier)
+    (parameter_list)
+    (body
+      (variable_declaration
+        (variable_declarator
+          name: (identifier)
+          (as_clause
+            type: (type_expression
+              (builtin_type))))
+        (variable_declarator
+          name: (identifier)
+          (as_clause
+            type: (type_expression
+              (builtin_type))))))))
+
+================
+Private Const
+================
+
+Private Const RATE As Double = 0.75
+
+---
+
+(source_file
+  (const_declaration
+    (access_modifier)
+    (const_declarator
+      name: (identifier)
+      (as_clause
+        type: (type_expression
+          (builtin_type)))
+      value: (literal
+        (float_literal)))))
